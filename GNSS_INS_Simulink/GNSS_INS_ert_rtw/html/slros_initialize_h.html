@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#ifndef</span> <a id="1c9" class="tk">_SLROS_INITIALIZE_H_</a></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="pp">#define</span> <a id="2c9" class="tk">_SLROS_INITIALIZE_H_</a></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="pp">#include "slros_busmsg_conversion.h"</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="pp">#include "slros_generic.h"</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="kw">extern</span> <a id="7c8" class="tk">ros</a>::<a id="7c13" class="tk">NodeHandle</a> <a id="7c24" class="tk">*</a> <a id="7c26" class="tk">SLROSNodePtr</a>;</td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="kw">extern</span> <span class="kw">const</span> <a id="8c14" class="tk">std</a>::<a id="8c19" class="tk">string</a> <a id="8c26" class="tk">SLROSNodeName</a>;</td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="ct">// For Block GNSS_INS/Subscribe</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="kw">extern</span> <a id="11c8" class="tk">SimulinkSubscriber</a><a id="11c26" class="tk">&lt;</a><a id="11c27" class="tk">sensor_msgs</a>::<a id="11c40" class="tk">Imu</a>, <a id="11c45" class="tk">SL_Bus_GNSS_INS_sensor_msgs_Imu</a><a id="11c76" class="tk">&gt;</a> <a id="11c78" class="tk">Sub_GNSS_INS_1</a>;</td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="ct">// For Block GNSS_INS/Subscribe1</span></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="kw">extern</span> <a id="14c8" class="tk">SimulinkSubscriber</a><a id="14c26" class="tk">&lt;</a><a id="14c27" class="tk">sensor_msgs</a>::<a id="14c40" class="tk">NavSatFix</a>, <a id="14c51" class="tk">SL_Bus_GNSS_INS_sensor_msgs_NavSatFix</a><a id="14c88" class="tk">&gt;</a> <a id="14c90" class="tk">Sub_GNSS_INS_4</a>;</td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="ct">// For Block GNSS_INS/Subscribe2</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td><span class="kw">extern</span> <a id="17c8" class="tk">SimulinkSubscriber</a><a id="17c26" class="tk">&lt;</a><a id="17c27" class="tk">geometry_msgs</a>::<a id="17c42" class="tk">Vector3Stamped</a>, <a id="17c58" class="tk">SL_Bus_GNSS_INS_geometry_msgs_Vector3Stamped</a><a id="17c102" class="tk">&gt;</a> <a id="17c104" class="tk">Sub_GNSS_INS_21</a>;</td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="ct">// For Block GNSS_INS/Publish</span></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="kw">extern</span> <a id="20c8" class="tk">SimulinkPublisher</a><a id="20c25" class="tk">&lt;</a><a id="20c26" class="tk">nav_msgs</a>::<a id="20c36" class="tk">Odometry</a>, <a id="20c46" class="tk">SL_Bus_GNSS_INS_nav_msgs_Odometry</a><a id="20c79" class="tk">&gt;</a> <a id="20c81" class="tk">Pub_GNSS_INS_12</a>;</td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><span class="kw">void</span> <a id="22c6" class="tk">slros_node_init</a>(<span class="kw">int</span> <a id="22c26" class="tk">argc</a>, <span class="kw">char</span><a id="22c36" class="tk">*</a><a id="22c37" class="tk">*</a> <a id="22c39" class="tk">argv</a>);</td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

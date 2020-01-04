@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="ct">/* Copyright 2015-2018 The MathWorks, Inc. */</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="pp">#include "slros_generic_param.h"</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct">/**</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="ct"> * Initialize the parameter getter class.</span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="ct"> * @param pName The name of the ROS parameter</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="kw">void</span> <a id="9c6" class="tk">SimulinkParameterGetterBase</a>::<a id="9c35" class="tk">initialize</a>(<span class="kw">const</span> <a id="9c52" class="tk">std</a>::<a id="9c57" class="tk">string</a><a id="9c63" class="tk">&amp;</a> <a id="9c65" class="tk">pName</a>) <span class="br">{</span></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td>    <a id="10c5" class="tk">nodePtr</a> = <a id="10c15" class="tk">SLROSNodePtr</a>;</td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td>    <a id="11c5" class="tk">paramName</a> = <a id="11c17" class="tk">pName</a>;</td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td>    <a id="12c5" class="tk">hasValidValue</a> = false;</td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="br">}</span></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="ct">/**</span></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="ct"> * Initialize the constants for the error codes.</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td><span class="ct"> * @param codeSuccess Error code that should be emitted if parameter is retrieved successfully</span></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="ct"> * @param codeNoParam Error code if parameter with given name does not exist on server</span></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="ct"> * @param codeTypeMismatch Error code if parameter exists on server, but has a different data type</span></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="ct"> * @param codeArrayTruncate Error code if received array was truncated</span></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><span class="kw">void</span> <a id="22c6" class="tk">SimulinkParameterGetterBase</a>::<a id="22c35" class="tk">initialize_error_codes</a>(<a id="22c58" class="tk">uint8_t</a> <a id="22c66" class="tk">codeSuccess</a>,</td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td>                                                         <a id="23c58" class="tk">uint8_t</a> <a id="23c66" class="tk">codeNoParam</a>,</td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td>                                                         <a id="24c58" class="tk">uint8_t</a> <a id="24c66" class="tk">codeTypeMismatch</a>,</td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td>                                                         <a id="25c58" class="tk">uint8_t</a> <a id="25c66" class="tk">codeArrayTruncate</a>) <span class="br">{</span></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td>    <span class="ct">// Initialize the error codes</span></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td>    <a id="27c5" class="tk">errorCodeSuccess</a> = <a id="27c24" class="tk">codeSuccess</a>;</td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td>    <a id="28c5" class="tk">errorCodeNoParam</a> = <a id="28c24" class="tk">codeNoParam</a>;</td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td>    <a id="29c5" class="tk">errorCodeTypeMismatch</a> = <a id="29c29" class="tk">codeTypeMismatch</a>;</td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td>    <a id="30c5" class="tk">errorCodeArrayTruncate</a> = <a id="30c30" class="tk">codeArrayTruncate</a>;</td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="br">}</span></td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>
